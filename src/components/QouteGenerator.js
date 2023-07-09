@@ -39,20 +39,22 @@ function QouteGenerator() {
                     }}
                     id='copy-icon'
                 >
-                    <span id=''></span>
+                    <span id=''>copy</span>
                 </button>
-                <button
-                    className='share-button'
-                    onClick={() => setShowButton(!showButton)}
-                >
-                    <span>share</span>
-                </button>
-                <div id='share-content' className={`share-content ${(showButton) ? "" : "hidden"}`}>
-                    <div>
-                        <a
-                            className='button'
-                            href={`https://twitter.com/intent/tweet?text="${quote}" -    ${author}&hashtags=quote`} id='tweet-quote'
-                            target='_blank'><span>Tweet</span></a>
+                <div className='share-controls'>
+                    <button
+                        className='share-button'
+                        onClick={() => setShowButton(!showButton)}
+                    >
+                        <span>share</span>
+                    </button>
+                    <div id='share-content' className={`share-content ${(showButton) ? "" : "hidden"}`}>
+                        <div>
+                            <a
+                                className='button'
+                                href={`https://twitter.com/intent/tweet?text="${quote}" -    ${author}&hashtags=quote`} id='tweet-quote'
+                                target='_blank'><span>tweet</span></a>
+                        </div>
                     </div>
                 </div>
                 {/* <button onClick={pullQuotes} id='new-quote'>New quote</button> */}

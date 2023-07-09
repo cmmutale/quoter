@@ -21,7 +21,6 @@
     top: 5%;
     height: 90%;
     padding: 0 0.75rem;
-    overflow-y: scroll;
 }
 
 #quote-box {
@@ -83,6 +82,10 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+    }
+
+    #main-app-section{
+        overflow-y: scroll;
     }
 }
 

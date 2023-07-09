@@ -21,6 +21,7 @@
     top: 5%;
     height: 90%;
     padding: 0 0.75rem;
+    overflow-y: scroll;
 }
 
 #quote-box {
@@ -74,7 +75,7 @@
     }
     .share-content{
         position: absolute;
-        right: 0;
+        right: 30px;
         bottom: 100px;
     }
 

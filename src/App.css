@@ -1,66 +1,110 @@
-.App {
+.App{
+    min-width: 100vw;
     min-height: 100vh;
     min-height: 100svh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #1b1b1b;
+    background-color: black;
+}
+
+.bg-image{
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    display: block;
+    filter: opacity(0.5);
+}
+
+
+#main-app-section {
+    position: absolute;
+    width: 100%;
+    top: 5%;
+    height: 90%;
+    padding: 0 0.75rem;
 }
 
 #quote-box {
-    max-width: 24rem;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
-    padding: 0.5rem;
-    border-radius: 12px;
-    margin-inline: 0.5rem;
+    justify-content: space-between;
+    height: 100%;
+    /* border-radius: 12px; */
+    /* max-width: 24rem; */
+    /* background-color: #fff; */
 }
 
-#text{
-    font-size:1.75rem ;
+.quote-content__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quote-content__container div{
+    display: flex;
+}
+
+#text {
+    /* font-size: 1.75rem; */
+    font-size: 4.5rem;
+    width: 100%;
     font-weight: 600;
     text-align: center;
+    cursor: pointer;
+    color: white;
 }
 
-#author{
-    font-size: 1.25rem;
+#author {
+    font-size: 2.5rem;
     font-weight: 400;
     font-style: italic;
     font-weight: bold;
     color: rgb(136, 136, 136);
 }
 
-.quote-content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.75rem;
+
+@media screen and (max-width: 768px) {
+    #text{
+        font-size: 2.75rem;
+    }
+    #author{
+        font-size: 1.5rem;
+    }
+    .quote-controls{
+        justify-content: space-between!important;
+    }
+    .share-content{
+        position: absolute;
+        right: 0;
+        bottom: 100px;
+    }
+
+    .share-content >div{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 }
 
 .quote-controls{
     display: flex;
+    gap: 2rem;
     align-items: center;
-    justify-content: space-between;
-    padding: 1rem 0 0 0;
+    position: relative;
+    padding: 0 2rem;
 }
 
-button, .button{
-    background-color: #1b1b1b;
-    color: #fff;
-    border: none;
-    height: 42px;
-    padding: 0 0.5rem;
-    border-radius: 8px;
+.quote-controls > button {
+    display: inline;
+}
+
+.quote-controls > div {
+    display: inline;
+}
+
+button{
     cursor: pointer;
-    font-weight: bold;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
 }
 
-a{
+a {
     text-decoration: none;
     padding: 0.70rem;
     background-color: #1b1b1b;
@@ -70,18 +114,35 @@ a{
     margin: 0 0.5rem;
 }
 
-.quote-controls >div{
-    display: flex;
-    align-items: center;
+#copy-icon{
+    display: block;
+    height: 74px;
+    width: 74px;
+    border: 4px dashed white;
+    stroke-dasharray: 40;
+    background-color: transparent;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 
+.share-button{
+    font-size: 24px;
+    padding: 0.25rem 0.75rem;
+    border-radius: 8px;
+    border: 1px white;
+}
+
+.hidden{
+    display: none !important;
+}
 
 @keyframes qoute-load {
-    0%  {
+    0% {
         opacity: 0;
     }
-    100%{
+
+    100% {
         opacity: 1;
     }
 }

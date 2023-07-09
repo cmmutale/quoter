@@ -7,6 +7,7 @@ function QouteGenerator() {
     const API_URL = 'https://api.quotable.io/random';
     const [quote, setQuote] = useState("");
     const [author, setAuthor] = useState("");
+    const [showButton, setShowButton] = useState(false);
 
     function pullQuotes() {
         fetch(API_URL)
@@ -23,26 +24,38 @@ function QouteGenerator() {
     }, [])
 
     return (
-        <div className='' id='quote-box'>
-            <div className='quote-content'>
-                <span id='text'>{quote}</span>
-                <span id='author'> - {author} -</span>
+        <div id='quote-box'>
+            <div className='quote-content__container'>
+                <div><span id='author'> - {author} -</span></div>
+                <div onClick={pullQuotes}>
+                    <span id='text'>{quote}</span>
+                </div>
             </div>
             <div className='quote-controls'>
-                <div>
-                    <a
-                        className='button'
-                        href={`https://twitter.com/intent/tweet?text="${quote}" -    ${author}&hashtags=quote`} id='tweet-quote'
-                        target='_blank'><span>Tweet</span></a>
-                    <button
-                        onClick={() => {
-                            navigator.clipboard.writeText(quote);
-                            alert('Quote has been copied!')
-                        }}
-                        id='copy-quote'
-                    >copy</button>
+                <button
+                    onClick={() => {
+                        navigator.clipboard.writeText(quote);
+                        alert('Quote has been copied!')
+                    }}
+                    id='copy-icon'
+                >
+                    <span id=''></span>
+                </button>
+                <button
+                    className='share-button'
+                    onClick={() => setShowButton(!showButton)}
+                >
+                    <span>share</span>
+                </button>
+                <div id='share-content' className={`share-content ${(showButton) ? "" : "hidden"}`}>
+                    <div>
+                        <a
+                            className='button'
+                            href={`https://twitter.com/intent/tweet?text="${quote}" -    ${author}&hashtags=quote`} id='tweet-quote'
+                            target='_blank'><span>Tweet</span></a>
+                    </div>
                 </div>
-                <button onClick={pullQuotes} id='new-quote'>New quote</button>
+                {/* <button onClick={pullQuotes} id='new-quote'>New quote</button> */}
             </div>
         </div>
     )

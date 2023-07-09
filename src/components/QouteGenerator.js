@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { motion, AnimatePresence } from "framer-motion";
 
 
 function QouteGenerator() {
@@ -24,16 +25,15 @@ function QouteGenerator() {
     return (
         <div className='' id='quote-box'>
             <div className='quote-content'>
-                <span id='text'>
-                    {quote}
-                </span>
-                <span id='author'>
-                    - {author}
-                </span>
+                <span id='text'>{quote}</span>
+                <span id='author'> - {author} -</span>
             </div>
             <div className='quote-controls'>
                 <div>
-                    <a href={`https://twitter.com/intent/tweet?text="${quote}" -    ${author}&hashtags=quote`} id='tweet-quote' target='_blank'>Tweet</a>
+                    <a
+                        className='button'
+                        href={`https://twitter.com/intent/tweet?text="${quote}" -    ${author}&hashtags=quote`} id='tweet-quote'
+                        target='_blank'><span>Tweet</span></a>
                     <button
                         onClick={() => {
                             navigator.clipboard.writeText(quote);

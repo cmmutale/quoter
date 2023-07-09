@@ -6,8 +6,8 @@
 }
 
 .bg-image{
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    min-width: 100vw;
     object-fit: cover;
     display: block;
     filter: opacity(0.5);
